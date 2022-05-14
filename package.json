@@ -1,0 +1,19 @@
+{
+  "name": "pars",
+  "version": "1.0.0",
+  "description": "A functional parsing library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grayson/pars.git"
+  },
+  "author": "Grayson Hansard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Grayson/pars/issues"
+  },
+  "homepage": "https://github.com/Grayson/pars#readme"
+}
