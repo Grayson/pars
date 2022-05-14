@@ -1,7 +1,11 @@
-import { foo } from "./pars"
+import { one } from "./pars"
 
 describe('coherence', () => {
-	test('foo should return 1', () => {
-		expect(foo()).toBe(1)
+	test('one should match input', () => {
+		expect(one('foo', 'f')).toBe('f')
+	})
+
+	test('one should not match input', () => {
+		expect(one('foo', 'o')).toBeNull()
 	})
 })

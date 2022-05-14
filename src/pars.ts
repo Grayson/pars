@@ -1,5 +1,7 @@
-function foo() {
-	return 1
+function one(input: string, match: string): string | null {
+	return input.startsWith(match)
+		? match
+		: null
 }
 
-export { foo }
+export { one }
