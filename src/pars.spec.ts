@@ -56,4 +56,12 @@ describe('coherence', () => {
 		let parser = sequence()
 		expect(parser('foo')).toBeNull()
 	})
+
+	test('sequence should match multi-character strings', () => {
+		let parser = sequence(
+			partial(one, 'foo'),
+			partial(one, 'bar'),
+		)
+		expect(parser('foobar')).toBe('foobar')
+	})
 })

@@ -38,7 +38,7 @@ function sequence(...parser: PartiallyAppliedParser[]) : PartiallyAppliedParser
 				return null
 			}
 			matched = matched + result
-			remainder = remainder.substring(1)
+			remainder = remainder.substring(result.length)
 			next = iterator.next()
 		}
 		return matched
