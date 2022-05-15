@@ -16,4 +16,20 @@ describe('coherence', () => {
 	test('partial should not match', () => {
 		expect(partial(one, 'f')('foo')).toBe('f')
 	})
+
+	test('either should match', () => {
+		let parser = either(
+			partial(one, 'b'),
+			partial(one, 'f')
+		)
+		expect(parser('foo')).toBe('f')
+	})
+
+	test('either should not match', () => {
+		let parser = either(
+			partial(one, 'b'),
+			partial(one, 'c')
+		)
+		expect(parser('foo')).toBeNull()
+	})
 })
