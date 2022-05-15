@@ -8,10 +8,17 @@ function one(input: string, match: string): ParseResult {
 		: null
 }
 
-function either(left: PartiallyAppliedParser, right: PartiallyAppliedParser)
+function either(...parsers: PartiallyAppliedParser[])
 	: PartiallyAppliedParser
 {
-	return (input) => left(input) || right(input)
+	return (input) => {
+		for (const parser of parsers) {
+			const value = parser(input)
+			if (!!value)
+				return value
+		}
+		return null
+	}
 }
 
 function partial(parser: Parser, match: string): PartiallyAppliedParser {

@@ -20,6 +20,7 @@ describe('coherence', () => {
 	test('either should match', () => {
 		let parser = either(
 			partial(one, 'b'),
+			partial(one, 'c'),
 			partial(one, 'f')
 		)
 		expect(parser('foo')).toBe('f')
