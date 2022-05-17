@@ -1,4 +1,4 @@
-import { one, partial } from "./pars"
+import { one, partial, taggingPartial } from "./pars"
 
 describe('coherence', () => {
 	test('one should match input', () => {
@@ -15,5 +15,17 @@ describe('coherence', () => {
 
 	test('partial should not match', () => {
 		expect(partial(one, 'f')('foo')).toBe('f')
+	})
+
+	test('tagged with result', () => {
+		const result = taggingPartial(one, 'f', 42)('foo')
+		expect(result.result).toBe('f')
+		expect(result.tag).toBe(42)
+	})
+
+	test('tagged without result', () => {
+		const result = taggingPartial(one, 'b', 42)('foo')
+		expect(result.result).toBeNull()
+		expect(result.tag).toBe(42)
 	})
 })
